@@ -4,8 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HGC Foundation | Mercury Charity Fund</title>
+    <!-- SEO -->
+    <meta name="description" content="HGC Foundation (Mercury Charity Fund) – Spreading wings of guardianship for autistic children. Connect the Lights, Brighten the Sky.">
+    <meta name="keywords" content="autism, autistic children, charity, foundation, HGC, Mercury Fund, inclusive education, rehabilitation">
+    <meta name="author" content="HGC Foundation">
+    <!-- Open Graph -->
+    <meta property="og:title" content="HGC Foundation | Mercury Charity Fund">
+    <meta property="og:description" content="Spreading wings of guardianship for autistic children. Connect the Lights, Brighten the Sky.">
+    <meta property="og:image" content="https://www.hgcfoundation.com/logo_b.png">
+    <meta property="og:url" content="https://www.hgcfoundation.com">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="HGC Foundation | Mercury Charity Fund">
+    <meta name="twitter:description" content="Spreading wings of guardianship for autistic children.">
+    <meta name="twitter:image" content="https://www.hgcfoundation.com/logo_b.png">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS Scroll Animations -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -132,6 +153,45 @@
             </div>
         </div>
     </header>
+
+    <!-- Impact Stats -->
+    <section class="py-16 bg-white border-b border-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-6 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="flex justify-center items-end gap-1">
+                        <span class="text-5xl font-bold text-mercury counter" data-target="50">0</span>
+                        <span class="text-3xl font-bold text-warm mb-1">+</span>
+                    </div>
+                    <p class="text-gray-500 mt-3 font-medium">Families Supported</p>
+                    <div class="w-12 h-1 bg-warm rounded mx-auto mt-3 group-hover:w-20 transition-all duration-300"></div>
+                </div>
+                <div class="p-6 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex justify-center items-end gap-1">
+                        <span class="text-5xl font-bold text-mercury counter" data-target="200">0</span>
+                        <span class="text-3xl font-bold text-warm mb-1">+</span>
+                    </div>
+                    <p class="text-gray-500 mt-3 font-medium">Volunteers</p>
+                    <div class="w-12 h-1 bg-warm rounded mx-auto mt-3 group-hover:w-20 transition-all duration-300"></div>
+                </div>
+                <div class="p-6 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex justify-center items-end gap-1">
+                        <span class="text-5xl font-bold text-mercury counter" data-target="3">0</span>
+                    </div>
+                    <p class="text-gray-500 mt-3 font-medium">Core Programs</p>
+                    <div class="w-12 h-1 bg-warm rounded mx-auto mt-3 group-hover:w-20 transition-all duration-300"></div>
+                </div>
+                <div class="p-6 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex justify-center items-end gap-1">
+                        <span class="text-5xl font-bold text-mercury">5</span>
+                        <span class="text-2xl font-bold text-warm mb-1">-Year</span>
+                    </div>
+                    <p class="text-gray-500 mt-3 font-medium">Strategic Roadmap</p>
+                    <div class="w-12 h-1 bg-warm rounded mx-auto mt-3 group-hover:w-20 transition-all duration-300"></div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- About Section -->
     <section id="about" class="py-20 bg-white">
@@ -634,25 +694,64 @@
                 </div>
             </div>
             <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500">
-                <p>&copy; 2025 HGC Foundation (Mercury Charity Fund). All rights reserved.</p>
+                <p>&copy; 2025–2026 HGC Foundation (Mercury Charity Fund). All rights reserved.</p>
                 <p class="mt-2">Special Fund Management Affiliation: Beijing Waterdrop Charity Foundation</p>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-warm text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-warm-dark z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+    <!-- JavaScript -->
     <script>
+        // AOS Init
+        AOS.init({ duration: 700, once: true, offset: 60 });
+
+        // Mobile Menu
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+        function closeMenu() { menu.classList.add('hidden'); }
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        // Back to Top
+        const backBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backBtn.classList.add('opacity-100');
+            } else {
+                backBtn.classList.add('opacity-0', 'pointer-events-none');
+                backBtn.classList.remove('opacity-100');
+            }
         });
 
-        // Optional: Close menu when a link is clicked
-        function closeMenu() {
-            menu.classList.add('hidden');
-        }
+        // Animated Counters
+        const counters = document.querySelectorAll('.counter');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    const target = parseInt(el.getAttribute('data-target'));
+                    const duration = 1500;
+                    const step = Math.ceil(target / (duration / 16));
+                    let current = 0;
+                    const timer = setInterval(() => {
+                        current += step;
+                        if (current >= target) { current = target; clearInterval(timer); }
+                        el.textContent = current;
+                    }, 16);
+                    observer.unobserve(el);
+                }
+            });
+        }, { threshold: 0.5 });
+        counters.forEach(c => observer.observe(c));
     </script>
 
 </body>

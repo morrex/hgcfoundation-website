@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | HGC Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
+    <script>
+        tailwind.config = {
+            theme: { extend: { colors: {
+                mercury: { DEFAULT: '#1B3C73', dark: '#0F254A' },
+                warm: { DEFAULT: '#FF9A00', dark: '#F57C00' }
+            }}}
+        }
+    </script>
+</head>
+<body class="bg-mercury min-h-screen flex items-center justify-center text-white font-sans">
+    <div class="text-center px-6">
+        <div class="mb-8">
+            <img src="logo.png" alt="HGC Foundation" class="h-16 mx-auto mb-6 opacity-80">
+        </div>
+        <div class="text-8xl font-bold text-warm mb-4">404</div>
+        <h1 class="text-3xl font-bold mb-4">Page Not Found</h1>
+        <p class="text-blue-200 text-lg mb-2">The page you're looking for doesn't exist or has been moved.</p>
+        <p class="text-blue-300 text-sm mb-10">「连接微光，点亮星空」— Connect the Lights, Brighten the Sky</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/" class="bg-warm hover:bg-warm-dark text-white px-8 py-3 rounded-full font-bold transition shadow-lg">
+                <i class="fas fa-home mr-2"></i>Back to Home
+            </a>
+            <a href="mailto:info@HGCfoundation.com" class="border-2 border-white hover:bg-white hover:text-mercury text-white px-8 py-3 rounded-full font-bold transition">
+                <i class="fas fa-envelope mr-2"></i>Contact Us
+            </a>
+        </div>
+        <div class="mt-16 flex justify-center space-x-6 text-blue-300 text-sm">
+            <a href="/#about" class="hover:text-warm transition">About</a>
+            <a href="/#projects" class="hover:text-warm transition">Projects</a>
+            <a href="/#join" class="hover:text-warm transition">Volunteer</a>
+            <a href="index_cn.html" class="hover:text-warm transition">中文</a>
+        </div>
+    </div>
+</body>
+</html>

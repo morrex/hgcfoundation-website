@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HGC Foundation | 水星公益基金</title>
+    <!-- SEO -->
+    <meta name="description" content="水星公益基金（HGC Foundation）——为自闭症儿童撑起守护之翼。连接微光，点亮星空。">
+    <meta name="keywords" content="自闭症,孤独症,公益基金,水星基金,HGC,融合教育,康复">
+    <meta name="author" content="HGC Foundation">
+    <!-- Open Graph -->
+    <meta property="og:title" content="HGC Foundation | 水星公益基金">
+    <meta property="og:description" content="为自闭症儿童撑起守护之翼。连接微光，点亮星空。">
+    <meta property="og:image" content="https://www.hgcfoundation.com/logo_b.png">
+    <meta property="og:url" content="https://www.hgcfoundation.com/index_cn.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_CN">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="apple-touch-icon" href="logo.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -640,19 +656,31 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu Toggle -->
+    <!-- Back to Top Button -->
+    <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-warm text-white rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none transition-all duration-300 hover:bg-warm-dark z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
+        AOS.init({ duration: 700, once: true, offset: 60 });
+
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+        function closeMenu() { menu.classList.add('hidden'); }
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+        const backBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backBtn.classList.remove('opacity-0', 'pointer-events-none');
+                backBtn.classList.add('opacity-100');
+            } else {
+                backBtn.classList.add('opacity-0', 'pointer-events-none');
+                backBtn.classList.remove('opacity-100');
+            }
         });
-
-        // Optional: Close menu when a link is clicked
-        function closeMenu() {
-            menu.classList.add('hidden');
-        }
     </script>
 
 </body>
