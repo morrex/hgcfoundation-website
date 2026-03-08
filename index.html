@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGC Foundation | Mercury Charity Fund</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mercury: {
+                            light: '#4A90E2',
+                            DEFAULT: '#1B3C73', // Mercury Blue (Original Dark)
+                            dark: '#0F254A',
+                        },
+                        warm: {
+                            light: '#FFB74D',
+                            DEFAULT: '#FF9A00', // Warm Orange
+                            dark: '#F57C00',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            /* Dark Blue Gradient matching #1B3C73 */
+            background-image: linear-gradient(rgba(27, 60, 115, 0.85), rgba(27, 60, 115, 0.7)), url('https://images.unsplash.com/photo-1502086223501-686db62bf461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #FF9A00;
+            border-radius: 2px;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="bg-mercury text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo Area -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" alt="HGC Foundation Logo" width="268" height="120" class="h-10 w-auto object-contain">
+                    <span class="text-xl font-bold tracking-wide">HGC Foundation</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-warm transition">About Us</a>
+                    <a href="#mission" class="hover:text-warm transition">Vision & Mission</a>
+                    <a href="#projects" class="hover:text-warm transition">Core Projects</a>
+                    <a href="#roadmap" class="hover:text-warm transition">Roadmap</a>
+                    <a href="#team" class="hover:text-warm transition">Our Team</a>
+                    <a href="#join" class="hover:text-warm transition">Join Us</a>
+                    
+                    <!-- Language Switcher -->
+                    <a href="index_cn.html" class="text-warm border border-warm px-3 py-1 rounded hover:bg-warm hover:text-white transition" title="Switch to Chinese">中文</a>
+
+                    <a href="#donate" class="bg-warm hover:bg-warm-dark text-white px-6 py-2 rounded-full font-bold transition shadow-md">
+                        Donate
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none flex items-center gap-4">
+                    <a href="index_cn.html" class="text-sm text-warm border border-warm px-2 py-1 rounded">中文</a>
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blue-800 animate-fade-in-down">
+                <div class="flex flex-col space-y-4 mt-4 text-center font-medium">
+                    <a href="#about" class="block hover:text-warm transition py-2" onclick="closeMenu()">About Us</a>
+                    <a href="#mission" class="block hover:text-warm transition py-2" onclick="closeMenu()">Vision & Mission</a>
+                    <a href="#projects" class="block hover:text-warm transition py-2" onclick="closeMenu()">Core Projects</a>
+                    <a href="#roadmap" class="block hover:text-warm transition py-2" onclick="closeMenu()">Roadmap</a>
+                    <a href="#team" class="block hover:text-warm transition py-2" onclick="closeMenu()">Our Team</a>
+                    <a href="#join" class="block hover:text-warm transition py-2" onclick="closeMenu()">Join Us</a>
+                    <a href="#donate" class="inline-block bg-warm hover:bg-warm-dark text-white px-6 py-2 rounded-full font-bold transition shadow-md w-3/4 mx-auto" onclick="closeMenu()">
+                        Donate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl mx-auto mt-16">
+            <p class="text-warm font-semibold tracking-wider uppercase mb-4 animate-pulse">Foreword: A Starry Sky Agreement</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Spreading Wings of <br><span class="text-warm">Guardianship</span> for Autistic Children
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light italic">
+                "Connect the Lights, Brighten the Sky"
+            </p>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
+                So that no autistic child remains an isolated island, but becomes a bright star in the night sky, connected and guarded.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#projects" class="bg-warm hover:bg-warm-dark text-white px-8 py-3 rounded-full font-bold text-lg transition shadow-lg">
+                    Explore Projects
+                </a>
+                <a href="#join" class="border-2 border-white hover:bg-white hover:text-mercury text-white px-8 py-3 rounded-full font-bold text-lg transition">
+                    Become a Volunteer
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-4 section-title">Brand Identity & About Us</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">Waterdrop Foundation · HGC Mercury Charity Fund</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-mercury">
+                        <h3 class="text-xl font-bold text-mercury mb-2">Basic Information</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>Full Name (CN):</strong> 水星公益基金</li>
+                            <li><strong>Full Name (EN):</strong> HGC Foundation</li>
+                            <li><strong>Nature:</strong> Special Public Welfare Fund (Affiliated with Beijing Waterdrop Charity Foundation)</li>
+                            <li><strong>Official Website:</strong> www.HGCfoundation.com</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-mercury mb-4">The Dual Meaning of HGC</h3>
+                        <p class="text-gray-600 mb-4">Our name embodies a dual philosophical system that constitutes the spiritual core of the foundation:</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Dimension 1 -->
+                            <div class="p-4 shadow rounded bg-white">
+                                <div class="text-warm font-bold mb-1">Dimension 1: Action Guide</div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">H</span>
+                                    <span><span class="font-bold">Hope</span>: Lighting a lighthouse in despair.</span>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">G</span>
+                                    <span><span class="font-bold">Guardian</span>: Enduring security barrier.</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-mercury font-bold w-6">C</span>
+                                    <span><span class="font-bold">Connection</span>: Breaking barriers of loneliness.</span>
+                                </div>
+                            </div>
+                             <!-- Dimension 2 -->
+                             <div class="p-4 shadow rounded bg-white">
+                                <div class="text-warm font-bold mb-1">Dimension 2: Growth Path</div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">H</span>
+                                    <span><span class="font-bold">Health</span>: Physical and mental rehabilitation.</span>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">G</span>
+                                    <span><span class="font-bold">Growth</span>: Education rights and skills.</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-mercury font-bold w-6">C</span>
+                                    <span><span class="font-bold">Care</span>: Inclusive social environment.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Identity / Image Area -->
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-warm opacity-20 rounded-full"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-mercury opacity-20 rounded-full"></div>
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-xl aspect-video flex items-center justify-center relative z-10">
+                        <img src="logo_b.png" alt="HGC Foundation Logo Concept" width="348" height="156" class="w-full h-full object-contain p-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="mission" class="py-20 bg-mercury text-white relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fas fa-star absolute top-10 left-10 text-xl"></i>
+            <i class="fas fa-star absolute top-20 right-20 text-xs"></i>
+            <i class="fas fa-star absolute bottom-10 left-1/3 text-lg"></i>
+        </div>
+
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-warm mb-12">Our Vision & Mission</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Vision -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-eye"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Vision</h3>
+                    <p class="text-gray-200 leading-relaxed">
+                        To build a <span class="text-warm font-bold">"Zero Barriers, Non-Discriminatory, Dignified"</span> inclusive society, where every autistic child can discover their potential and enjoy a colorful childhood.
+                    </p>
+                </div>
+                
+                <!-- Mission -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Mission</h3>
+                    <ul class="text-left space-y-3 text-gray-200 text-sm">
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>Empower:</strong> Gather funds & tech for high-quality rehab resources.</li>
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>Bridge:</strong> Connect families, government, hospitals, and schools.</li>
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>Advocate:</strong> Eliminate prejudice and promote policy improvement.</li>
+                    </ul>
+                </div>
+
+                <!-- Values -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-xl font-bold mb-4">Values</h3>
+                    <div class="space-y-4 text-gray-200">
+                        <div>
+                            <span class="block text-warm font-bold">Respect</span>
+                            <span class="text-xs">Respect neurodiversity as unique, not a burden.</span>
+                        </div>
+                        <div>
+                            <span class="block text-warm font-bold">Scientific</span>
+                            <span class="text-xs">Rely on evidence-based medicine; refuse blind aid.</span>
+                        </div>
+                        <div>
+                            <span class="block text-warm font-bold">Transparency</span>
+                            <span class="text-xs">Uphold financial transparency; honor every kindness.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-4 section-title">HGC Core Projects</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Building a "Full Life Cycle" Support System</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- H - Health -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-blue-500"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition">H - Health</h3>
+                            <i class="fas fa-user-md text-3xl text-blue-200 group-hover:text-blue-500 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Starlight Rehab Support Plan</h4>
+                        <p class="text-sm text-gray-500 mb-6">Focus on physical & mental rehabilitation</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>"Star Wish" Grants:</strong> Subsidies for speech, OT, PT therapies.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Green Channel:</strong> Fast-track diagnosis in professional hospitals.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Respite Service:</strong> Volunteer care to give parents a break.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- G - Growth -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-green-500"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition">G - Growth</h3>
+                            <i class="fas fa-seedling text-3xl text-green-200 group-hover:text-green-500 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Morning Star Inclusive Education</h4>
+                        <p class="text-sm text-gray-500 mb-6">Supporting education rights & skills</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Art Healing Workshops:</strong> Painting, music, drama to unlock potential.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>"Little Guardians" Camp:</strong> Inclusive outdoor activities for friendship.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Gardener Award:</strong> Training for special education teachers.</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- C - Connection -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-warm"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-warm transition">C - Connection</h3>
+                            <i class="fas fa-hands-helping text-3xl text-orange-200 group-hover:text-warm transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Blue Ribbon Advocacy Plan</h4>
+                        <p class="text-sm text-gray-500 mb-6">Creating an inclusive social soil</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>"Light It Up Blue":</strong> World Autism Day landmark campaigns.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Digital Education:</strong> TikTok "100 Questions" series.</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>Policy Seminars:</strong> Promoting policy support with universities.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap (Updated 5-Year Plan) -->
+    <section id="roadmap" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-12 text-center section-title">5-Year Roadmap (2025-2029)</h2>
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+                
+                <!-- 2025 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2025 Phase 1: Foundation Year</h3>
+                        <p class="text-gray-500">Building Platforms, Pilot Projects</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">1</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2:</span> Launch first public welfare activities; start "Light It Up Blue" campaign.</li>
+                            <li><span class="font-bold">Q3:</span> Participate in multiple offline volunteer activities.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-left p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2026 Phase 2: Elevation Year</h3>
+                        <p class="text-gray-500">Advancement & Growth</p>
+                    </div>
+                    <div class="w-10 h-10 bg-mercury rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">2</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-mercury text-right md:text-left">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2:</span> Launch "Star Wish" grants (10 children); continue "Light It Up Blue".</li>
+                            <li><span class="font-bold">Q2:</span> Initiate North America autism activity participation.</li>
+                            <li><span class="font-bold">Q4:</span> Release HGC's first public service film.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2027 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2027 Phase 3: Expansion Year</h3>
+                        <p class="text-gray-500">Brand Deepening, Diversified Co-creation</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">3</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2:</span> Launch "Art Healing Workshop", first exhibition in Beijing/Shanghai.</li>
+                            <li><span class="font-bold">Q3:</span> Recruit 100 "Guardians Alliance" volunteers; normalize respite services.</li>
+                            <li><span class="font-bold">Q4:</span> 5 CSR partners; support 100 children.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2028 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-left p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2028 Phase 4: Deepening Year</h3>
+                        <p class="text-gray-500">Model Output, Policy Advocacy</p>
+                    </div>
+                    <div class="w-10 h-10 bg-mercury rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">4</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-mercury text-right md:text-left">
+                        <p class="text-gray-700 font-bold">Goal:</p>
+                        <p class="text-gray-700">Build a replicable community integration model; cumulative direct beneficiaries > 500.</p>
+                    </div>
+                </div>
+
+                <!-- 2029 -->
+                <div class="flex flex-col md:flex-row items-center justify-between relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2029 Phase 5: Scaling Year</h3>
+                        <p class="text-gray-500">Broad Expansion, Cross-border Linkage</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">5</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                        <p class="text-gray-700 font-bold">Goal:</p>
+                        <p class="text-gray-700">Promote cross-border projects; leverage technology to improve quality of life for families.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance & Team -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+             <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-12 section-title">Governance & Management</h2>
+             
+             <div class="flex flex-wrap justify-center gap-8 mb-16">
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-user-tie"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Lufeng Gao</h3>
+                     <p class="text-warm font-medium mb-2">Chairman</p>
+                     <p class="text-xs text-gray-500">Strategic planning & major decisions</p>
+                 </div>
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-users"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Zixuan Gao</h3>
+                     <p class="text-blue-500 font-medium mb-2">Vice Chairman</p>
+                 </div>
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-users"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Zien Gao</h3>
+                     <p class="text-blue-500 font-medium mb-2">Vice Chairman</p>
+                 </div>
+                 <!-- Patron -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-warm">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-hand-holding-heart"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Jenny Liu</h3>
+                     <p class="text-warm font-medium mb-2">Founding Patron</p>
+                     <p class="text-xs text-gray-500">Cornerstone of the foundation's initiation</p>
+                 </div>
+             </div>
+
+             <div class="grid md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-building mr-2"></i>General Management Dept</h4>
+                     <p class="text-sm text-gray-600">Administration, HR, and compliance with Waterdrop Foundation.</p>
+                 </div>
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-network-wired mr-2"></i>Outreach & Projects Dept</h4>
+                     <p class="text-sm text-gray-600">Project implementation, beneficiary selection, and partnerships.</p>
+                 </div>
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-coins mr-2"></i>Finance & Fund Dept</h4>
+                     <p class="text-sm text-gray-600">Budgeting, donor feedback, and financial disclosure.</p>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- External Engagement -->
+    <section id="join" class="py-20 bg-mercury text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-warm mb-12 text-center">Join Us: Ecosystem Co-creation</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Individuals -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2">For Individuals</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-handshake"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Become an "HGC Partner"</h4>
+                                <p class="text-gray-300 text-sm mb-2">Deep support through resources or professional skills.</p>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• Fundraising Partner: Leverage influence to help fundraise.</li>
+                                    <li>• Professional Partner: Pro Bono services in Law, Medicine, PR, etc.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-user-shield"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Become a "Guardian" Volunteer</h4>
+                                <p class="text-gray-300 text-sm">Event Volunteer (on-site support) or Companion Volunteer (respite service).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2">For Corporations & Institutions</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-briefcase"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Corporate CSR Partners</h4>
+                                <p class="text-gray-300 text-sm">Co-branded campaigns, employee volunteer days, targeted project donations.</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-hospital"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">Professional Institution Alliance</h4>
+                                <p class="text-gray-300 text-sm">Medical institutions (Green Channel) or Schools (Inclusive Models).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="bg-white/10 inline-block px-8 py-6 rounded-xl">
+                    <h4 class="font-bold mb-4">Onboarding Process</h4>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <span class="flex items-center">Initial Contact <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="flex items-center">Verification <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="flex items-center">Plan Co-creation <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="font-bold text-warm">Signing & Awarding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financials & Compliance -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-mercury mb-6">Financial Transparency</h2>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold mb-3">Fund Allocation Principle (Proposed)</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Rehab Support & Project Execution</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-mercury h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Public Advocacy & Education</span>
+                                    <span>20%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-400 h-2.5 rounded-full" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Administration & Team Building</span>
+                                    <span>10%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-gray-400 h-2.5 rounded-full" style="width: 10%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-4">* Strictly complying with the Charity Law; annual audit reports published.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-2xl font-bold text-mercury mb-6">Compliance & Risk Control</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Compliance Operations</h4>
+                                <p class="text-sm text-gray-600">Strictly abide by the Charity Law of the PRC. Relying on Waterdrop Foundation for public fundraising qualifications.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-balance-scale text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Risk Management</h4>
+                                <p class="text-sm text-gray-600"><strong>Reputation:</strong> Respect privacy, refuse sensationalism.<br><strong>Execution:</strong> Strict selection and regular visits of partner institutions.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Expected Outcomes</h4>
+                                <p class="text-sm text-gray-600">Become an industry benchmark in 3 years; build a solid support network.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mercury-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">HGC Foundation</h3>
+                    <p class="text-gray-400 max-w-sm mb-4">
+                        We are not just providers of funds, but sowers of hope. Let us join hands to spread the wings of guardianship for autistic children.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-warm">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Core Projects</a></li>
+                        <li><a href="#join" class="hover:text-white transition">Become a Volunteer</a></li>
+                        <li><a href="#" class="hover:text-white transition">Donation Publicity</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-warm">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fas fa-envelope mr-2"></i> info@HGCfoundation.com</li>
+                        <li><i class="fas fa-globe mr-2"></i> www.HGCfoundation.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Beijing, China</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 HGC Foundation (Mercury Charity Fund). All rights reserved.</p>
+                <p class="mt-2">Special Fund Management Affiliation: Beijing Waterdrop Charity Foundation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Optional: Close menu when a link is clicked
+        function closeMenu() {
+            menu.classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>

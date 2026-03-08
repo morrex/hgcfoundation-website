@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HGC Foundation | 水星公益基金</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        mercury: {
+                            light: '#4A90E2',
+                            DEFAULT: '#1B3C73', // 星空蓝
+                            dark: '#0F254A',
+                        },
+                        warm: {
+                            light: '#FFB74D',
+                            DEFAULT: '#FF9A00', // 暖阳橙
+                            dark: '#F57C00',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'PingFang SC', 'Microsoft YaHei', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(27, 60, 115, 0.85), rgba(27, 60, 115, 0.7)), url('https://images.unsplash.com/photo-1502086223501-686db62bf461?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: #FF9A00;
+            border-radius: 2px;
+        }
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50 scroll-smooth">
+
+    <!-- Navigation -->
+    <nav class="bg-mercury text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo Area -->
+                <div class="flex items-center space-x-2">
+                    <img src="logo.png" alt="HGC Foundation Logo" width="268" height="120" class="h-10 w-auto object-contain">
+                    <span class="text-xl font-bold tracking-wide">HGC Foundation</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#about" class="hover:text-warm transition">关于我们</a>
+                    <a href="#mission" class="hover:text-warm transition">使命愿景</a>
+                    <a href="#projects" class="hover:text-warm transition">核心项目</a>
+                    <a href="#roadmap" class="hover:text-warm transition">发展计划</a>
+                    <a href="#team" class="hover:text-warm transition">管理团队</a>
+                    <a href="#join" class="hover:text-warm transition">加入我们</a>
+                    
+                    <!-- Language Switcher -->
+                    <a href="index.html" class="text-warm border border-warm px-3 py-1 rounded hover:bg-warm hover:text-white transition" title="Switch to English">EN</a>
+
+                    <a href="#donate" class="bg-warm hover:bg-warm-dark text-white px-6 py-2 rounded-full font-bold transition shadow-md">
+                        爱心捐赠
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none flex items-center gap-4">
+                    <a href="index.html" class="text-sm text-warm border border-warm px-2 py-1 rounded">EN</a>
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Dropdown Menu (Hidden by default) -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-blue-800 animate-fade-in-down">
+                <div class="flex flex-col space-y-4 mt-4 text-center font-medium">
+                    <a href="#about" class="block hover:text-warm transition py-2" onclick="closeMenu()">关于我们</a>
+                    <a href="#mission" class="block hover:text-warm transition py-2" onclick="closeMenu()">使命愿景</a>
+                    <a href="#projects" class="block hover:text-warm transition py-2" onclick="closeMenu()">核心项目</a>
+                    <a href="#roadmap" class="block hover:text-warm transition py-2" onclick="closeMenu()">发展计划</a>
+                    <a href="#team" class="block hover:text-warm transition py-2" onclick="closeMenu()">管理团队</a>
+                    <a href="#join" class="block hover:text-warm transition py-2" onclick="closeMenu()">加入我们</a>
+                    <a href="#donate" class="inline-block bg-warm hover:bg-warm-dark text-white px-6 py-2 rounded-full font-bold transition shadow-md w-3/4 mx-auto" onclick="closeMenu()">
+                        爱心捐赠
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
+        <div class="max-w-4xl mx-auto mt-16">
+            <p class="text-warm font-semibold tracking-wider uppercase mb-4 animate-pulse">前言：星光下的约定</p>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                为孤独症儿童<br>展开<span class="text-warm">守护之翼</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 font-light italic">
+                "Spreading Wings of Guardianship for Autistic Children"
+            </p>
+            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
+                让每一个孤独症儿童不再是社会的孤岛，而是夜空中被连接、被守护的璀璨星辰。
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <a href="#projects" class="bg-warm hover:bg-warm-dark text-white px-8 py-3 rounded-full font-bold text-lg transition shadow-lg">
+                    探索项目
+                </a>
+                <a href="#join" class="border-2 border-white hover:bg-white hover:text-mercury text-white px-8 py-3 rounded-full font-bold text-lg transition">
+                    成为志愿者
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-4 section-title">基金概况与品牌识别</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">水滴基金会 · HGC水星公益基金</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-mercury">
+                        <h3 class="text-xl font-bold text-mercury mb-2">基础信息</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li><strong>中文全称：</strong>水星公益基金</li>
+                            <li><strong>英文全称：</strong>HGC Foundation</li>
+                            <li><strong>性质：</strong>专项公益基金（隶属北京水滴汇聚公益基金会）</li>
+                            <li><strong>官方网站：</strong>www.HGCfoundation.com</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-mercury mb-4">HGC 的双重深意</h3>
+                        <p class="text-gray-600 mb-4">我们的名称蕴含着双重哲学体系，构成了基金的精神内核：</p>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <!-- Dimension 1 -->
+                            <div class="p-4 shadow rounded bg-white">
+                                <div class="text-warm font-bold mb-1">维度一：行动指引</div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">H</span>
+                                    <span><span class="font-bold">Hope 希望</span>：点亮灯塔，注入动力</span>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">G</span>
+                                    <span><span class="font-bold">Guardian 守护</span>：恒久星辰，安全屏障</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-mercury font-bold w-6">C</span>
+                                    <span><span class="font-bold">Connection 连接</span>：打破壁垒，汇聚资源</span>
+                                </div>
+                            </div>
+                             <!-- Dimension 2 -->
+                             <div class="p-4 shadow rounded bg-white">
+                                <div class="text-warm font-bold mb-1">维度二：成长路径</div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">H</span>
+                                    <span><span class="font-bold">Health 健康</span>：身心机能康复</span>
+                                </div>
+                                <div class="flex items-start mb-2">
+                                    <span class="text-mercury font-bold w-6">G</span>
+                                    <span><span class="font-bold">Growth 成长</span>：教育权利与技能</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-mercury font-bold w-6">C</span>
+                                    <span><span class="font-bold">Care 关爱</span>：包容无歧视土壤</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Visual Identity / Image Area -->
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-24 h-24 bg-warm opacity-20 rounded-full"></div>
+                    <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-mercury opacity-20 rounded-full"></div>
+                    <div class="bg-gray-100 rounded-xl overflow-hidden shadow-xl aspect-video flex items-center justify-center relative z-10">
+                        <img src="logo_b.png" alt="HGC Foundation Logo Concept" width="348" height="156" class="w-full h-full object-contain p-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="mission" class="py-20 bg-mercury text-white relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+            <i class="fas fa-star absolute top-10 left-10 text-xl"></i>
+            <i class="fas fa-star absolute top-20 right-20 text-xs"></i>
+            <i class="fas fa-star absolute bottom-10 left-1/3 text-lg"></i>
+        </div>
+
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-warm mb-12">我们的愿景与使命</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Vision -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-eye"></i></div>
+                    <h3 class="text-xl font-bold mb-4">愿景 (Vision)</h3>
+                    <p class="text-gray-200 leading-relaxed">
+                        构建一个<span class="text-warm font-bold">“零障碍、无歧视、有尊严”</span>的融合社会，让每一位孤独症儿童都能挖掘自身潜能，拥有色彩斑斓的童年与未来。
+                    </p>
+                </div>
+                
+                <!-- Mission -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-rocket"></i></div>
+                    <h3 class="text-xl font-bold mb-4">使命 (Mission)</h3>
+                    <ul class="text-left space-y-3 text-gray-200 text-sm">
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>赋能：</strong>汇聚资金技术，提供高质量康复资源。</li>
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>桥梁：</strong>连接家庭、政府、医院与学校。</li>
+                        <li><i class="fas fa-check text-warm mr-2"></i><strong>倡导：</strong>消除偏见，推动政策完善。</li>
+                    </ul>
+                </div>
+
+                <!-- Values -->
+                <div class="bg-white/10 backdrop-blur-sm p-8 rounded-xl border border-white/20 hover:transform hover:-translate-y-2 transition duration-300">
+                    <div class="text-4xl text-warm mb-6"><i class="fas fa-heart"></i></div>
+                    <h3 class="text-xl font-bold mb-4">价值观 (Values)</h3>
+                    <div class="space-y-4 text-gray-200">
+                        <div>
+                            <span class="block text-warm font-bold">尊重 Respect</span>
+                            <span class="text-xs">尊重神经多样性，视其为独特而非负担。</span>
+                        </div>
+                        <div>
+                            <span class="block text-warm font-bold">科学 Scientific</span>
+                            <span class="text-xs">依托循证医学，拒绝盲目救助。</span>
+                        </div>
+                        <div>
+                            <span class="block text-warm font-bold">透明 Transparency</span>
+                            <span class="text-xs">坚持财务公开，不负每一份善意。</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-4 section-title">HGC 三大核心计划</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">构建“全生命周期”的支持体系</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- H - Health -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-blue-500"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition">H - Health</h3>
+                            <i class="fas fa-user-md text-3xl text-blue-200 group-hover:text-blue-500 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">星光康复支持计划</h4>
+                        <p class="text-sm text-gray-500 mb-6">关注身心机能的康复与改善</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>“星语心愿”资助金：</strong>为困难家庭提供语言、OT、PT治疗补贴。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>绿色通道：</strong>专业医院诊断与评估快速通道。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>家长喘息服务：</strong>志愿者看护，让家长获得休息。</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- G - Growth -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-green-500"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-green-600 transition">G - Growth</h3>
+                            <i class="fas fa-seedling text-3xl text-green-200 group-hover:text-green-500 transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">启明星融合教育计划</h4>
+                        <p class="text-sm text-gray-500 mb-6">支持教育权利与技能习得</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>艺术疗愈工坊：</strong>绘画、音乐、戏剧开发潜能。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>“小小守护者”夏令营：</strong>普特融合，建立友谊。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>特教园丁奖：</strong>资助培训一线特教老师。</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- C - Connection -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+                    <div class="h-3 bg-warm"></div>
+                    <div class="p-8">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-2xl font-bold text-gray-800 group-hover:text-warm transition">C - Connection</h3>
+                            <i class="fas fa-hands-helping text-3xl text-orange-200 group-hover:text-warm transition"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">蓝丝带社会倡导计划</h4>
+                        <p class="text-sm text-gray-500 mb-6">营造包容无歧视的社会土壤</p>
+                        <ul class="space-y-3 text-gray-600 text-sm">
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>“点亮蓝灯”行动：</strong>世界孤独症日地标亮灯宣传。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>数字化科普：</strong>TikTok/抖音《科普百问》系列。</span></li>
+                            <li class="flex items-start"><i class="fas fa-star text-warm mt-1 mr-2"></i><span><strong>政策研讨会：</strong>联合中残联及高校推动政策支持。</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap (Updated 5-Year Plan) -->
+    <section id="roadmap" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-12 text-center section-title">五年执行路线图 (2025-2029)</h2>
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-200"></div>
+                
+                <!-- 2025 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2025 第一阶段：筑基年</h3>
+                        <p class="text-gray-500">搭建平台，试点先行</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">1</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2：</span>启动首批公益活动，启动点亮蓝灯行动。</li>
+                            <li><span class="font-bold">Q3：</span>参与和支持线下多次志愿者活动。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2026 -->
+                <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-left p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2026 第二阶段：提升年</h3>
+                        <p class="text-gray-500">提升进阶</p>
+                    </div>
+                    <div class="w-10 h-10 bg-mercury rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">2</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-mercury text-right md:text-left">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2：</span>启动首批“星语心愿”资助金（10名），继续支持点亮蓝灯行动。</li>
+                            <li><span class="font-bold">Q2：</span>开展北美孤独症相关活动的参与动作。</li>
+                            <li><span class="font-bold">Q4：</span>发布HGC首支公益宣传片。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 2027 -->
+                <div class="flex flex-col md:flex-row items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2027 第三阶段：拓展年</h3>
+                        <p class="text-gray-500">品牌深化，多元共建</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">3</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                         <ul class="list-disc list-inside text-gray-700 space-y-2">
+                            <li><span class="font-bold">Q1-Q2：</span>启动“HGC艺术疗愈工坊”，北京/上海举办首展。</li>
+                            <li><span class="font-bold">Q3：</span>招募100名“守护者联盟”志愿者，常态化开展喘息服务。</li>
+                            <li><span class="font-bold">Q4：</span>达成5家企业CSR合作；资助儿童增至100名。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <!-- 2028 -->
+                 <div class="flex flex-col md:flex-row-reverse items-center justify-between mb-12 relative z-10">
+                    <div class="md:w-5/12 text-center md:text-left p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2028 第四阶段：深耕年</h3>
+                        <p class="text-gray-500">模式输出，政策倡导</p>
+                    </div>
+                    <div class="w-10 h-10 bg-mercury rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">4</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-r-4 border-mercury text-right md:text-left">
+                        <p class="text-gray-700 font-bold">目标：</p>
+                        <p class="text-gray-700">构建可复制的社区融合模式，累计直接受益儿童突破500名。</p>
+                    </div>
+                </div>
+
+                 <!-- 2029 -->
+                 <div class="flex flex-col md:flex-row items-center justify-between relative z-10">
+                    <div class="md:w-5/12 text-center md:text-right p-4">
+                        <h3 class="text-2xl font-bold text-mercury">2029 第五阶段：扩大年</h3>
+                        <p class="text-gray-500">广泛开展，跨境联动</p>
+                    </div>
+                    <div class="w-10 h-10 bg-warm rounded-full flex items-center justify-center text-white font-bold my-4 md:my-0 shadow-lg">5</div>
+                    <div class="md:w-5/12 bg-gray-50 p-6 rounded-lg shadow-md border-l-4 border-warm">
+                         <p class="text-gray-700 font-bold">目标：</p>
+                         <p class="text-gray-700">促进跨境项目展开，促进科技手段帮助孤独症孩子和家庭提升生活品质。</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Governance & Team -->
+    <section id="team" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6 text-center">
+             <h2 class="text-3xl md:text-4xl font-bold text-mercury mb-12 section-title">组织架构与治理机制</h2>
+             
+             <div class="flex flex-wrap justify-center gap-8 mb-16">
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-user-tie"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Lufeng Gao</h3>
+                     <p class="text-warm font-medium mb-2">理事长</p>
+                     <p class="text-xs text-gray-500">负责战略规划与重大决策</p>
+                 </div>
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-users"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Zixuan Gao</h3>
+                     <p class="text-blue-500 font-medium mb-2">副理事长</p>
+                 </div>
+                 <!-- Card -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-mercury">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-users"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Zien Gao</h3>
+                     <p class="text-blue-500 font-medium mb-2">副理事长</p>
+                 </div>
+                 <!-- Patron -->
+                 <div class="bg-white p-6 rounded-lg shadow-md w-64 border-t-4 border-warm">
+                     <div class="text-4xl text-gray-300 mb-4"><i class="fas fa-hand-holding-heart"></i></div>
+                     <h3 class="text-xl font-bold mb-1">Jenny Liu</h3>
+                     <p class="text-warm font-medium mb-2">核心资助人 (Founding Patron)</p>
+                     <p class="text-xs text-gray-500">基金发起的基石力量</p>
+                 </div>
+             </div>
+
+             <div class="grid md:grid-cols-3 gap-6 text-left max-w-4xl mx-auto">
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-building mr-2"></i>综合管理部</h4>
+                     <p class="text-sm text-gray-600">行政、人事及水滴基金会合规对接。</p>
+                 </div>
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-network-wired mr-2"></i>外联项目部</h4>
+                     <p class="text-sm text-gray-600">项目落地、受益人筛选及合作伙伴维护。</p>
+                 </div>
+                 <div class="p-4 bg-white rounded shadow-sm">
+                     <h4 class="font-bold text-mercury mb-2"><i class="fas fa-coins mr-2"></i>财务资金部</h4>
+                     <p class="text-sm text-gray-600">预算编制、捐赠反馈及财务公示。</p>
+                 </div>
+             </div>
+        </div>
+    </section>
+
+    <!-- External Engagement -->
+    <section id="join" class="py-20 bg-mercury text-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-warm mb-12 text-center">加入我们：生态共建</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Individuals -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2">个人参与途径</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-handshake"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">成为“HGC合伙人”</h4>
+                                <p class="text-gray-300 text-sm mb-2">通过资源链接或专业技能深度支持。</p>
+                                <ul class="text-xs text-gray-400 space-y-1">
+                                    <li>• 筹款合伙人：利用影响力协助筹款。</li>
+                                    <li>• 专业合伙人：法律、医疗、传播等 Pro Bono 服务。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-user-shield"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">成为“守护者”志愿者</h4>
+                                <p class="text-gray-300 text-sm">活动志愿者（现场支持）或 陪伴志愿者（喘息服务）。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 border-b border-gray-600 pb-2">企业与机构参与</h3>
+                    <div class="space-y-6">
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-briefcase"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">企业CSR战略伙伴</h4>
+                                <p class="text-gray-300 text-sm">联合品牌活动（消费捐）、员工志愿者日、定向项目认捐。</p>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="mr-4 text-warm text-2xl"><i class="fas fa-hospital"></i></div>
+                            <div>
+                                <h4 class="font-bold text-lg">专业机构联盟</h4>
+                                <p class="text-gray-300 text-sm">医疗机构（绿色通道）或 教育机构（融合示范校）。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <div class="bg-white/10 inline-block px-8 py-6 rounded-xl">
+                    <h4 class="font-bold mb-4">Onboarding Process</h4>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <span class="flex items-center">Initial Contact <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="flex items-center">Verification <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="flex items-center">Plan Co-creation <i class="fas fa-arrow-right mx-2 text-warm"></i></span>
+                        <span class="font-bold text-warm">Signing & Awarding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financials & Compliance -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-mercury mb-6">Financial Transparency</h2>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-bold mb-3">Fund Allocation Principle (Proposed)</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Rehab Support & Project Execution</span>
+                                    <span>70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-mercury h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Public Advocacy & Education</span>
+                                    <span>20%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-blue-400 h-2.5 rounded-full" style="width: 20%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-sm font-medium mb-1">
+                                    <span>Administration & Team Building</span>
+                                    <span>10%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-gray-400 h-2.5 rounded-full" style="width: 10%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-4">* Strictly complying with the Charity Law; annual audit reports published.</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-2xl font-bold text-mercury mb-6">Compliance & Risk Control</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fas fa-shield-alt text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Compliance Operations</h4>
+                                <p class="text-sm text-gray-600">Strictly abide by the Charity Law of the PRC. Relying on Waterdrop Foundation for public fundraising qualifications.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-balance-scale text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Risk Management</h4>
+                                <p class="text-sm text-gray-600"><strong>Reputation:</strong> Respect privacy, refuse sensationalism.<br><strong>Execution:</strong> Strict selection and regular visits of partner institutions.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-chart-line text-warm mt-1 mr-3 text-xl"></i>
+                            <div>
+                                <h4 class="font-bold">Expected Outcomes</h4>
+                                <p class="text-sm text-gray-600">Become an industry benchmark in 3 years; build a solid support network.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-mercury-dark text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <h3 class="text-2xl font-bold mb-4">HGC Foundation</h3>
+                    <p class="text-gray-400 max-w-sm mb-4">
+                        We are not just providers of funds, but sowers of hope. Let us join hands to spread the wings of guardianship for autistic children.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-weixin"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-weibo"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-tiktok"></i></a>
+                        <a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-warm transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-warm">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a href="#about" class="hover:text-white transition">About Us</a></li>
+                        <li><a href="#projects" class="hover:text-white transition">Core Projects</a></li>
+                        <li><a href="#join" class="hover:text-white transition">Become a Volunteer</a></li>
+                        <li><a href="#" class="hover:text-white transition">Donation Publicity</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-warm">Contact Us</h4>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fas fa-envelope mr-2"></i> info@HGCfoundation.com</li>
+                        <li><i class="fas fa-globe mr-2"></i> www.HGCfoundation.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Beijing, China</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 HGC Foundation (Mercury Charity Fund). All rights reserved.</p>
+                <p class="mt-2">Special Fund Management Affiliation: Beijing Waterdrop Charity Foundation</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu Toggle -->
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Optional: Close menu when a link is clicked
+        function closeMenu() {
+            menu.classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
