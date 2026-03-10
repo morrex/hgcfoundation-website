@@ -69,6 +69,30 @@
         .scroll-smooth {
             scroll-behavior: smooth;
         }
+        /* Hero Carousel */
+        .hero-carousel { position: relative; }
+        .hero-slide {
+            transition: opacity 0.9s ease-in-out;
+        }
+        .hero-slide:not(.active) {
+            position: absolute;
+            top: 0; left: 0; width: 100%;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .hero-dot {
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            background: white;
+            border: none; cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .hero-dot.active { opacity: 1; transform: scale(1.3); }
+        .hero-dot:not(.active) { opacity: 0.4; }
     </style>
 </head>
 <body class="font-sans text-gray-700 bg-gray-50 scroll-smooth">
@@ -127,16 +151,55 @@
     <!-- Hero Section -->
     <header class="hero-bg h-screen flex items-center justify-center text-center text-white px-4">
         <div class="max-w-4xl mx-auto mt-16">
-            <p class="text-warm font-semibold tracking-wider uppercase mb-4 animate-pulse">前言：星光下的约定</p>
-            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                为孤独症儿童<br>展开<span class="text-warm">守护之翼</span>
-            </h1>
-            <p class="text-xl md:text-2xl mb-8 font-light italic">
-                "Spreading Wings of Guardianship for Autistic Children"
-            </p>
-            <p class="text-lg md:text-xl mb-10 max-w-2xl mx-auto opacity-90">
-                让每一个孤独症儿童不再是社会的孤岛，而是夜空中被连接、被守护的璀璨星辰。
-            </p>
+            <!-- Hero Carousel -->
+            <div class="hero-carousel mb-6">
+                <!-- 幻灯片 1 -->
+                <div class="hero-slide active">
+                    <p class="text-warm font-semibold tracking-wider uppercase mb-4">前言：星光下的约定</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        为孤独症儿童<br>展开<span class="text-warm">守护之翼</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-6 font-light italic">
+                        "连接星光，点亮苍穹"
+                    </p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+                        让每一个孤独症儿童不再是社会的孤岛，而是夜空中被连接、被守护的璀璨星辰。
+                    </p>
+                </div>
+                <!-- 幻灯片 2 -->
+                <div class="hero-slide">
+                    <p class="text-warm font-semibold tracking-wider uppercase mb-4">我们的使命</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        每一颗星<br>都值得被<span class="text-warm">看见</span>
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-6 font-light italic">
+                        "从孤独到连接"
+                    </p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+                        我们相信，每个孤独症孩子都拥有独特的光芒——我们帮助这道光照亮彼此，照亮世界。
+                    </p>
+                </div>
+                <!-- 幻灯片 3 -->
+                <div class="hero-slide">
+                    <p class="text-warm font-semibold tracking-wider uppercase mb-4">我们的愿景</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        共建一个<br><span class="text-warm">包容</span>的世界
+                    </h1>
+                    <p class="text-xl md:text-2xl mb-6 font-light italic">
+                        "希望 · 关爱 · 共同体"
+                    </p>
+                    <p class="text-lg md:text-xl max-w-2xl mx-auto opacity-90">
+                        通过教育、康复与爱，让每个孩子都能找到属于自己的归属，让每个家庭不再独自承受。
+                    </p>
+                </div>
+            </div>
+            <!-- 圆点指示器 -->
+            <div class="flex justify-center gap-3 mb-8">
+                <button class="hero-dot active" onclick="heroGoTo(0)"></button>
+                <button class="hero-dot" onclick="heroGoTo(1)"></button>
+                <button class="hero-dot" onclick="heroGoTo(2)"></button>
+            </div>
+            <!-- 按钮（静态） -->
             <div class="flex flex-col md:flex-row justify-center gap-4">
                 <a href="#projects" class="bg-warm hover:bg-warm-dark text-white px-8 py-3 rounded-full font-bold text-lg transition shadow-lg">
                     探索项目
@@ -630,6 +693,26 @@
                 backBtn.classList.remove('opacity-100');
             }
         });
+
+        // Hero Carousel
+        (function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            const dots   = document.querySelectorAll('.hero-dot');
+            let current  = 0;
+
+            function heroGoTo(n) {
+                slides[current].classList.remove('active');
+                dots[current].classList.remove('active');
+                current = n;
+                slides[current].classList.add('active');
+                dots[current].classList.add('active');
+            }
+            window.heroGoTo = heroGoTo;
+
+            setInterval(function() {
+                heroGoTo((current + 1) % slides.length);
+            }, 5000);
+        })();
     </script>
 
 </body>
